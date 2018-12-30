@@ -29,6 +29,7 @@ body {
 }
 *{
   box-sizing: border-box;
+	outline: none;
 }
 ol, ul {
 	list-style: none;
@@ -81,7 +82,7 @@ nav{
   position: fixed;
   top: 0px;
   z-index: 1000000000;
-  overflow: hidden;;
+
 }
 .nav_wrapper{
 
@@ -129,11 +130,12 @@ font-size: 22px;
   margin-bottom: 80px;
 }
 .about_text h2{
-  width: 80%;
+  width: 800px;
   margin: auto;
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 20px;
+	line-height: normal;
 }
 .about_text h1::after{
   position: absolute;
@@ -171,6 +173,7 @@ font-size: 22px;
   height: auto;
   padding-top: 80px;
 padding-bottom: 80px;
+position: relative;
 }
 #work_gallery h1{
   text-align: center;
@@ -178,6 +181,7 @@ padding-bottom: 80px;
   font-size: 50px;
   font-family: 'bol';
   position: relative;
+
 
 }
 #work_gallery h1::after{
@@ -190,14 +194,57 @@ padding-bottom: 80px;
   left: 50%;
   transform: translate(-50%);
 }
+
 .works_flex{
   display: flex;
   justify-content: space-between;
   width: 1150px;
   margin: auto;
   flex-wrap: wrap;
-  margin-top: 80px;
+  margin-top: 130px;
 
+
+}
+.hidden_category_box{
+	display: none;
+justify-content: center;
+width: 1200px;
+}
+.hidden_category_box .gallery_element{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.desktop_slider_btn_bottom{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1000;
+}
+.desktop_slider_btn{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1000;
+}
+.category_select{
+	width: 300px;
+	height: 40px;
+	border: 3px solid red;
+	color: red;
+	font-size: 22px;
+display: none;
+background: none;
+border-radius: 10px;
+outline: none;
+position: absolute;
+left: 50%;
+transform: translate(-50%);
+top: 180px;
+cursor: pointer;
 }
  .gallery_element{
   width: 370px;
@@ -247,6 +294,10 @@ padding-bottom: 80px;
    z-index: 20;
    font-size: 25px;
    font-family: 'bol';
+	 min-width: 100px;
+	 width: auto;
+
+	 text-align: center;;
  }
  .gallery_element figure{
    position: absolute;
@@ -260,6 +311,18 @@ padding-bottom: 80px;
     height: 100%;
     object-fit: cover;
   }
+	.exit_slider_btn{
+		position: fixed;
+		top: 100px;
+		right: 40px;
+		background: url('../images/access-denied.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 40px;
+		height: 40px;
+		display: none;
+		border: none;
+	}
 .hidden_sliders{
   position: fixed;
   width: 100%;
@@ -273,7 +336,7 @@ padding-bottom: 80px;
 }
 .sliders{
 cursor: pointer;
-  width: 700px;
+  width: 800px;
   height: 500px;
 display: none;
 position: absolute;
@@ -285,7 +348,7 @@ transition: 0.4;
 }
 .sliders img{
   object-fit: cover;
-  width: 700px;
+  width: 800px;
   height: 500px;
 }
 .show_slider{
@@ -418,7 +481,14 @@ animation: show 0.6s linear forwards;
   left: 50%;
 }
 
+.slick-track,
+.slick-list,
+.slick-slide  {
+-webkit-perspective: 2000!important;
+-webkit-backface-visibility: hidden!important;
 
+
+}
 @media only screen and (max-width: 1250px){
   .works_flex{
     width: 1000px;
@@ -497,14 +567,14 @@ animation: show 0.6s linear forwards;
   .sliders{
 
     width: 95%;
-    height: 65vw;
+    height: 75vw;
 
 
   }
   .sliders img{
 
     width: 100%;
-    height: 65vw;
+    height: 75vw;
   }
     .hidden_sliders .slick-prev, .hidden_sliders .slick-next{
       display: none!important;
@@ -550,17 +620,41 @@ animation: show 0.6s linear forwards;
       transform: scaleY(1);
       transform-origin: top;
 }
+
+
+
+
+
+
+@media only screen and (min-width: 550px){
+	.slick-track,
+	.slick-list,
+	.slick-slide  {
+	-webkit-perspective: 2000!important;
+	-webkit-backface-visibility: hidden!important;
+	-webkit-transform: translate3d(0, 0, 0)!important;
+	transform: translate3d(0, 0, 0)!important;
+	-webkit-transition-delay: 10ms!important;
+			transition-delay: 10ms!important;
+	}
+}
+
 @media only screen and (max-width: 550px){
   .desktop_slider_btn{
-    display: none;
+
   }
+	.exit_slider_btn{
+		display: block;
+		z-index: 1000000;
+	}
+
   .mobile_slider_btn{
     display: block;
     width: 200px;
     height: 60px;
     border-radius: 10px;
     background: rgba(0,0,0, 0.6);
-  z-index: 300;
+		z-index: 100;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -570,6 +664,7 @@ animation: show 0.6s linear forwards;
   bottom: 30px;
   left: 50%;
   transform: translate(-50%);
+	pointer-events: none;
 
   }
   .hidden_gallery_text{
