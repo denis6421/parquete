@@ -15,6 +15,16 @@ $(document).ready(function(){
   });
 
 
+  var stickyTop = $('#work_gallery_h1').offset().top ;
+        $(window).on('scroll', function() {
+          if ($(window).scrollTop() >= stickyTop)  {
+            $('.category_select').addClass('fixed_button')
+          } else {
+            $('.category_select').removeClass('fixed_button')
+          }
+        });
+
+
      $('.head_slider').slick({
        dots:true,
        fade: true,
@@ -47,7 +57,7 @@ $('.category_select').click(function(){
     $('#bottom_works_flex').show();
     $(this).hide()
     $('#work_gallery_h1').html('פרוייקטים')
-    $('html, body').animate({scrollTop: $('#work_gallery').offset().top -100 }, 3);
+    $('html, body').animate({scrollTop: $('#work_gallery').offset().top -50 }, 3);
     return false;
 })
 
@@ -55,7 +65,7 @@ $('.category_select').click(function(){
 $('.desktop_slider_btn_bottom').click(function(){
   $('.category_select').show()
     $('#bottom_works_flex').hide();
-    $('html, body').animate({scrollTop: $('#work_gallery').offset().top -100 }, 3);
+    $('html, body').animate({scrollTop: $('#work_gallery').offset().top -50 }, 3);
     return false;
 
 })
@@ -84,7 +94,10 @@ $('.desktop_slider_shower').click(function(){
   $('.hidden_shower_box').css('display', 'flex');
   $('#work_gallery_h1').html('אמבטיות')
 })
-
+$('.desktop_slider_walls').click(function(){
+  $('.hidden_walls_box').css('display', 'flex');
+  $('#work_gallery_h1').html('חיפויים')
+})
 $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
   $(this).toggleClass('open');
   $('.mobile_menu').toggleClass('opend_menu');
@@ -105,25 +118,88 @@ $('#test_1').click(function(){
   $('.slider_1').addClass('show_slider')
   $('.slider_1').slick('setPosition');
 })
+
+
+
 $('#test_2').click(function(){
   $('.slider_2').addClass('show_slider')
   $('.slider_2').slick('setPosition');
 })
+
+
 $('#test_3').click(function(){
   $('.slider_3').addClass('show_slider')
   $('.slider_3').slick('setPosition');
 })
+
+
 $('#stairs_slider_1').click(function(){
   $('.slider_4').addClass('show_slider')
   $('.slider_4').slick('setPosition');
 })
+
+
 $('#deck_slider_3').click(function(){
   $('.slider_5').addClass('show_slider')
   $('.slider_5').slick('setPosition');
 })
+
+$('#deck_slider_4').click(function(){
+  $('.slider_deck1').addClass('show_slider')
+  $('.slider_deck1').slick('setPosition');
+})
+
+
 $('#shower_slider_1').click(function(){
   $('.slider_6').addClass('show_slider')
   $('.slider_6').slick('setPosition');
+})
+
+
+
+$('#stairs_slider_2').click(function(){
+  $('.slider_7').addClass('show_slider')
+  $('.slider_7').slick('setPosition');
+})
+
+
+
+$('#stairs_slider_3').click(function(){
+  $('.slider_8').addClass('show_slider')
+  $('.slider_8').slick('setPosition');
+})
+
+
+
+$('#stairs_slider_4').click(function(){
+  $('.slider_9').addClass('show_slider')
+  $('.slider_9').slick('setPosition');
+})
+
+
+$('#stairs_slider_5').click(function(){
+  $('.slider_10').addClass('show_slider')
+  $('.slider_10').slick('setPosition');
+})
+
+
+
+$('#walls_slider_1').click(function(){
+  $('.walls_slider1').addClass('show_slider')
+  $('.walls_slider1').slick('setPosition');
+})
+
+$('#walls_slider_2').click(function(){
+  $('.walls_slider2').addClass('show_slider')
+  $('.walls_slider2').slick('setPosition');
+})
+$('#walls_slider_3').click(function(){
+  $('.walls_slider3').addClass('show_slider')
+  $('.walls_slider3').slick('setPosition');
+})
+$('#walls_slider_4').click(function(){
+  $('.walls_slider4').addClass('show_slider')
+  $('.walls_slider4').slick('setPosition');
 })
 
 $(document).mouseup(function(e){

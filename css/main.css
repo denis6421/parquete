@@ -174,6 +174,7 @@ font-size: 22px;
   padding-top: 80px;
 padding-bottom: 80px;
 position: relative;
+
 }
 #work_gallery h1{
   text-align: center;
@@ -201,7 +202,7 @@ position: relative;
   width: 1150px;
   margin: auto;
   flex-wrap: wrap;
-  margin-top: 130px;
+  margin-top: 100px;
 
 
 }
@@ -209,10 +210,13 @@ position: relative;
 	display: none;
 justify-content: center;
 width: 1200px;
+margin-top: 130px!important;
 }
 .hidden_category_box .gallery_element{
 	margin-left: 10px;
 	margin-right: 10px;
+
+
 }
 .desktop_slider_btn_bottom{
 	width: 100%;
@@ -221,6 +225,8 @@ width: 1200px;
 	left: 0px;
 	top: 0px;
 	z-index: 1000;
+	background: rgba(0, 0, 0, 0.1)!important;
+
 }
 .desktop_slider_btn{
 	width: 100%;
@@ -229,22 +235,35 @@ width: 1200px;
 	left: 0px;
 	top: 0px;
 	z-index: 1000;
+
 }
 .category_select{
 	width: 300px;
-	height: 40px;
+	height: 50px;
 	border: 3px solid red;
 	color: red;
 	font-size: 22px;
 display: none;
-background: none;
+background: white;
 border-radius: 10px;
 outline: none;
 position: absolute;
 left: 50%;
 transform: translate(-50%);
-top: 180px;
+top: 170px;
 cursor: pointer;
+	transition: 0.3s;
+}
+.category_select:hover{
+	background: red;
+	color: white;
+	transition: 0.3s;
+}
+.fixed_button{
+	position: fixed;
+	top: 90px;
+	z-index: 10000000;
+
 }
  .gallery_element{
   width: 370px;
@@ -261,6 +280,7 @@ cursor: pointer;
   width: 100%;
   height: 100%;
   z-index: 100;
+
 }
 .mobile_slider_btn{
   display: none;
@@ -283,22 +303,30 @@ cursor: pointer;
    transition: 0.3s;
    line-height: normal;
    font-size: 22px;
+
 }
  .gallery_element:hover > .hidden_gallery_text{
    opacity: 1;
    transition: 0.3s;
+
  }
 
  .gallery_element h3{
-   position: relative;
-   z-index: 20;
-   font-size: 25px;
+   position: absolute;
+   z-index: 2000;
+   font-size: 30px;
    font-family: 'bol';
-	 min-width: 100px;
-	 width: auto;
+	width: 100%;
+	background: rgba(0,0,0, 0.2);
+	height: 60px;
+	right: 0px;
+	top: 0px;
+	padding-top: 10px;
+	padding-right: 20px;
 
-	 text-align: center;;
+
  }
+
  .gallery_element figure{
    position: absolute;
    width: 100%;
@@ -327,30 +355,33 @@ cursor: pointer;
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 100000;
+
   background: rgba(0,0,0, 0.65);
   left: 50%;
   top: 50%;
   display: none;
   transform: translate(-50%, -50%);
+	z-index: 9999999999;
 }
 .sliders{
 cursor: pointer;
-  width: 800px;
-  height: 500px;
+  width: 900px;
+  height: 600px;
 display: none;
 position: absolute;
 left: 50%;
 top: 50%;
-transform: translate(-50%, -50%);
+transform: translate(-50%, -48%);
 transition: 0.4;
 
+
 }
-.sliders img{
+.sliders img, .sliders video{
   object-fit: cover;
-  width: 800px;
-  height: 500px;
+  width: 900px;
+  height: 600px;
 }
+
 .show_slider{
 display: block;
 animation: show 0.6s linear forwards;
@@ -502,6 +533,14 @@ animation: show 0.6s linear forwards;
     font-size: 18px;
     padding-top: 60px;
   }
+	.sliders{
+		width:700px;
+		height: 450px;
+	}
+	.sliders img{
+		width:700px;
+		height: 450px;
+	}
 }
 @media only screen and (max-width: 1050px){
   .gallery_element{
@@ -668,7 +707,7 @@ animation: show 0.6s linear forwards;
 
   }
   .hidden_gallery_text{
-    opacity: 1;
+    opacity: 0!important;
     background: rgba(0,0,0, 0.15);
     padding-top: 60px;
   }
